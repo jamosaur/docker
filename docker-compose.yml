@@ -60,3 +60,10 @@ services:
             - DB_DATABASE=database_name
             - DB_USERNAME=mysql_user
             - DB_PASSWORD=mysql_password
+
+    mailhog:
+        image: mailhog/mailhog:latest
+        container_name: mypth-mailhog
+        ports:
+            - "1025:1025"
+            - "8025:8025"
