@@ -24,7 +24,8 @@ services:
             - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
             - ./ansible/roles/common/files/:/etc/nginc/certs
         ports:
-            - "8080:80"
+            - "8080:443"
+            - "8081:80"
         links:
             - php-fpm
 
@@ -50,7 +51,7 @@ services:
             context: .
             dockerfile: docker/artisan/Dockerfile
         container_name: mpth-artisan
-        working_dir: /application
+        working_dir: /application/api
         volumes:
             - .:/application
         links:
